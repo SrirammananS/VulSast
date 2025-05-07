@@ -1,0 +1,12 @@
+<!-- log-injection-vuln.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Vulnerable Log Injection</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h2>Vulnerable Log Received</h2>
+    <p>User input was: <span th:text="${input}"></span></p>
+</body>
+</html>

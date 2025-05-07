@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Log Injection Test Form</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h2>Test Log Injection</h2>
+
+    <form action="/log-injection-vuln" method="get">
+        <label for="userInput">Enter Input (Vulnerable):</label>
+        <input type="text" id="userInput" name="userInput" required>
+        <button type="submit">Submit to Vulnerable</button>
+    </form>
+
+    <br>
+
+    <form action="/log-injection-safe" method="get">
+        <label for="userInputSafe">Enter Input (Safe):</label>
+        <input type="text" id="userInputSafe" name="userInput" required>
+        <button type="submit">Submit to Safe</button>
+    </form>
+</body>
+</html>

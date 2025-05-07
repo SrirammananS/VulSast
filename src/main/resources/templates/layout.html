@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${pageTitle}">Vulnerability App</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+    <!-- Header (NavBar) -->
+    <div th:replace="fragments/header :: navbar"></div>
+
+    <!-- Page Content -->
+    <main style="padding: 20px;">
+        <div th:replace="${content}"></div>
+    </main>
+
+    <!-- Optional Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

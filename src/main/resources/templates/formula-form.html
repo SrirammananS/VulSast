@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formula Injection Input</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h2>Enter Username</h2>
+    <form th:action="@{/submit-username}" method="get">
+        <label>Username:</label>
+        <input type="text" name="username" required />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

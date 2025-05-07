@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>XML Product Search</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="page-container">
+        <div th:replace="fragments/header :: navbar"></div>  
+        
+        <main class="content-wrap">
+            <h1>Search Product by ID</h1>
+
+            <form method="get" action="/xml-product-search-vuln">
+                <label for="productId">Product ID:</label>
+                <input type="text" id="productId" name="productId" required>
+                <button type="submit">Vulnerable Search</button>
+            </form>
+
+            <br>
+
+            <form method="get" action="/xml-product-search-safe">
+                <label for="productId">Product ID:</label>
+                <input type="text" id="productId" name="productId" required>
+                <button type="submit">Safe Search</button>
+            </form>
+        </main>
+
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+</body>
+
+</html>

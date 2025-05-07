@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM XSS Test</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h1>DOM XSS Demo</h1>
+
+    <div style="border: 1px solid red; padding: 10px;">
+        <h2>⚠️ Vulnerable Version</h2>
+        <p>Type something and press Enter to inject via hash :</p>
+        <input type="text" id="vulnInput" placeholder="Type something and press Enter" />
+        <button onclick="injectHash()">Inject</button>
+        <p id="vulnOutput"></p>
+    </div>
+
+    <hr>
+
+    <div style="border: 1px solid green; padding: 10px;">
+        <h2>✅ Safe Version</h2>
+        <p>Enter a message:</p>
+        <input type="text" id="safeInput" placeholder="Type something safe..." />
+        <button onclick="safeDisplay()">Display Safely</button>
+        <p id="safeOutput"></p>
+    </div>
+
+    <script>
+        // ⚠️ DOM XSS VULNERABLE CODE
+        function injectHash() {
+            const val = document.getElementById("vulnInput").value;
+            location.hash = val;
+        }
+
+        const hashValue = location.hash.substring(1); // Strip #
+        //document.getElementById("vulnOutput").innerHTML = "Output: " + hashValue;
+        document.getElementById("vulnOutput").innerHTML = "Output: " + decodeURIComponent(hashValue);
+
+
+        // ✅ SAFE CODE
+        function safeDisplay() {
+            const safeValue = document.getElementById("safeInput").value;
+            document.getElementById("safeOutput").textContent = "Output: " + safeValue; // textContent = safe
+        }
+    </script>
+</body>
+</html>

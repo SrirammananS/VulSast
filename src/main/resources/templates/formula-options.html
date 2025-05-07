@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CSV Export Options</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h2>Export CSV</h2>
+    <p>User input has been stored. Choose how you want to export it:</p>
+    <ul>
+        <li><a th:href="@{/export-vuln-csv}">Download Vulnerable CSV</a></li>
+        <li><a th:href="@{/export-safe-csv}">Download Safe CSV</a></li>
+    </ul>
+</body>
+</html>

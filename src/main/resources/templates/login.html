@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: navbar}"></div>
+
+    <main class="content-wrap">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <label>Username:</label>
+            <input type="text" name="username" required />
+            <label>Password:</label>
+            <input type="password" name="password" required />
+            <button type="submit">Login</button>
+        </form>
+    </main>
+
+
+</body>
+</html>

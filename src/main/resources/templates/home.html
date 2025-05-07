@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vulnerability Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            font-size: 18px;
+            color: #333;
+        }
+        .card p {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            background: #007bff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Vulnerability Testing Dashboard</h1>
+    <div class="container">
+
+        <!-- SQL Injection -->
+        <div class="card">
+            <h2>SQL Injection</h2>
+            <p>Vulnerable: <code>/login</code></p>
+            <p>Secure: <code>/login-secure</code></p>
+            <p><strong>Payload:</strong> <code>admin' OR 1=1 --</code></p>
+            <a href="/login">Test SQL Injection</a>
+        </div>
+
+        <!-- Reflected XSS -->
+        <div class="card">
+            <h2>Reflected XSS</h2>
+            <p>Vulnerable: <code>/xss-vuln</code></p>
+            <p>Secure: <code>/xss-safe</code></p>
+            <a href="/xss-vuln?input=%3Cscript%3Ealert('XSS')%3C/script%3E">Test Reflected XSS</a>
+        </div>
+
+        <!-- Stored XSS -->
+        <div class="card">
+            <h2>Stored XSS</h2>
+            <p>Vulnerable: <code>/xss-stored-vuln</code></p>
+            <p>Secure: <code>/xss-stored-safe</code></p>
+            <a href="/xss-stored-vuln">Test Stored XSS</a>
+        </div>
+
+        <!-- DOM XSS -->
+        <div class="card">
+            <h2>DOM XSS</h2>
+            <p><code>/dom-xss</code></p>
+            <p><strong>Payload:</strong> <code>#&lt;img src=x onerror=alert("XSS")&gt;</code></p>
+            <a href="/dom-xss#<img%20src=x%20onerror=alert('XSS')>">Test DOM XSS</a>
+        </div>
+
+        <!-- Log Injection -->
+        <div class="card">
+            <h2>Log Injection</h2>
+            <p><code>/log-injection-form</code></p>
+            <p><strong>Payload:</strong> <code>input%0AINFO</code></p>
+            <a href="/log-injection-form">Test Log Injection</a>
+        </div>
+
+        <!-- Formula Injection -->
+        <div class="card">
+            <h2>Formula Injection (CSV)</h2>
+            <p><code>/formula-form</code></p>
+            <a href="/formula-form">Test Formula Injection</a>
+        </div>
+
+        <!-- XPath Injection -->
+        <div class="card">
+            <h2>XPath Injection</h2>
+            <p><code>/xpath-form</code></p>
+            <a href="/xpath-form">Test XPath Injection</a>
+        </div>
+
+        <!-- XML Injection -->
+        <div class="card">
+            <h2>XML Injection</h2>
+            <p><code>/xml-product-form</code></p>
+            <a href="/xml-product-form">Test XML Injection</a>
+        </div>
+
+        <!-- Command Injection -->
+        <div class="card">
+            <h2>Command Injection</h2>
+            <p>Vulnerable: <code>/command-injection-vuln</code></p>
+            <p>Secure: <code>/command-injection-safe</code></p>
+            <p><strong>Payload:</strong> <code>ls</code></p>
+            <a href="/command-injection-vuln?command=ls">Test Command Injection</a>
+        </div>
+        </div>
+        
+   
+</body>
+</html>

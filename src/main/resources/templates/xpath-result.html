@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>XPath Result</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h2 th:text="${message}"></h2>
+    <a th:href="@{/xpath-form}">Try Again</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>XPath Injection Demo</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar"></div>
+    <h2>XPath Login Demo</h2>
+    <form th:action="@{/xpath-login-vuln}" method="get">
+        <label>Username:</label>
+        <input type="text" name="username" required /><br/>
+        <label>Password:</label>
+        <input type="text" name="password" required /><br/>
+        <button type="submit">Login (Vulnerable)</button>
+    </form>
+
+    <form th:action="@{/xpath-login-safe}" method="get" style="margin-top:20px;">
+        <label>Username:</label>
+        <input type="text" name="username" required /><br/>
+        <label>Password:</label>
+        <input type="text" name="password" required /><br/>
+        <button type="submit">Login (Safe)</button>
+    </form>
+</body>
+</html>

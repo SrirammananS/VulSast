@@ -1,0 +1,40 @@
+<div th:fragment="navbar">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">🔒 VulnApp</a>
+        </div>
+
+        <ul class="navbar-menu">
+            <li><a href="/">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#">Injection Attacks ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/login">SQL Injection (Vuln)</a></li>
+                    <li><a href="/login-secure">SQL Injection (Secure)</a></li>
+                    <li><a href="/xss-vuln">Reflected XSS (Vuln)</a></li>
+                    <li><a href="/xss-safe">Reflected XSS (Safe)</a></li>
+                    <li><a href="/xss-stored-vuln">Stored XSS (Vuln)</a></li>
+                    <li><a href="/xss-stored-safe">Stored XSS (Safe)</a></li>
+                    <li><a href="/dom-xss">DOM XSS</a></li>
+                    <li><a href="/command-injection-vuln?command=ls">Command Injection</a></li>
+                    <li><a href="/log-injection-form">Log Injection</a></li>
+                    <li><a href="/formula-form">Formula Injection</a></li>
+                    <li><a href="/xpath-form">XPath Injection</a></li>
+                    <li><a href="/xml-product-form">XML Injection</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Auth & Session ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Login Brute Force</a></li>
+                    <li><a href="#">Session Fixation</a></li>
+                    <!-- Future items -->
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
